@@ -10,15 +10,15 @@ const BookList = (props) => {
 
   const [searchQuery, setSearchQuery] = useState("")
 
-  changeSelectedBook = (asin) => {
-    this.setState({
-      selectedBook: asin,
-    })
-  }
+  // changeSelectedBook = (asin) => {
+  //   this.setState({
+  //     selectedBook: asin,
+  //   })
+  // }
 
-  const [changeSelectedBook, setChangeSelectedBook] = useState(
-    selectedBook: asin,
-  )
+  const bookId = (id) =>{
+    setSelectedBook(id)
+  }
 
 
     return (
@@ -34,8 +34,9 @@ const BookList = (props) => {
                     type="text"
                     placeholder="Search here"
                     value={searchQuery}
-                    onChange={(e) =>
-                      setSearchQuery({ searchQuery: e.target.value })
+                    onChange={(e) =>{
+                      setSearchQuery(e.target.value )
+                    }
                     }
                   />
                 </Form.Group>
@@ -50,8 +51,7 @@ const BookList = (props) => {
                   <Col xs={12} md={4} key={b.asin}>
                     <SingleBook
                       book={b}
-                      selectedBook={selectedBook}
-                      changeSelectedBook={this.changeSelectedBook}
+                      sendBookId={bookId} selected={b.asin === selectedBook}
                     />
                   </Col>
                 ))}
