@@ -13,9 +13,7 @@ const CommentArea = (props) => {
   // };
 
   const [comments, setComments] = useState([]);
-
   const [isLoading, setIsLoading] = useState(false);
-
   const [isError, setIsError] = useState(false);
 
   // componentDidMount = async () => {
@@ -44,11 +42,11 @@ const CommentArea = (props) => {
   // }
 
   useEffect(() => {
-    getComments();
+    fecthComments();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.asin]);
 
-  const getComments = async () => {
+  const fecthComments = async () => {
     if (props.asin) {
       setIsLoading(true);
       try {
