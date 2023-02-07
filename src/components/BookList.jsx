@@ -15,9 +15,11 @@ const BookList = (props) => {
   //     selectedBook: asin,
   //   })
   // }
-  const bookId = (id) =>{
-    setSelectedBook(id)
+  const changeSelectedBook = (asin) => {
+    setSelectedBook(asin)
   }
+
+
 
 
     return (
@@ -50,7 +52,8 @@ const BookList = (props) => {
                   <Col xs={12} md={4} key={b.asin}>
                     <SingleBook
                       book={b}
-                      sendBookId={bookId} selected={b.asin === selectedBook}
+                      selectedBook={selectedBook}
+                      changeSelectedBook={changeSelectedBook}
                     />
                   </Col>
                 ))}
