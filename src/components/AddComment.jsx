@@ -1,4 +1,4 @@
-import { Component } from 'react'
+// import { Component } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { useState } from 'react'
 import { useEffect } from 'react'
@@ -15,24 +15,27 @@ const AddComment = async (props) => {
   )
 
   useEffect(()=>{
-    sendComment, []
+    sendComment()
   })
 
   useEffect(()=>{
-   
-  })
+   setComment({
+    comment: "",
+      rate: 1,
+      elementId: props.asin,})
+  }, [props.asin] )
   
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.asin !== this.props.asin) {
-      this.setState({
-        comment: {
-          ...this.state.comment,
-          elementId: this.props.asin,
-        },
-      })
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.asin !== this.props.asin) {
+  //     this.setState({
+  //       comment: {
+  //         ...this.state.comment,
+  //         elementId: this.props.asin,
+  //       },
+  //     })
+  //   }
+  // }
 
   const sendComment = async (e) => {
     e.preventDefault()
